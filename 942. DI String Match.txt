@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string s) {
+        int start=0,end=s.length();
+        vector<int> vec;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='I')
+            {
+                vec.push_back(start);
+                start++;
+            }   
+            else if(s[i]=='D')
+            {
+                vec.push_back(end);
+                end--;
+            }
+        }
+        vec.push_back(start);
+        return vec;
+    }
+};
