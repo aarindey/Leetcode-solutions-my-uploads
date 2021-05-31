@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int numWaterBottles(int numBottles, int numExchange) {
+        int sum=0;
+        while(numBottles)
+        {
+            if(numBottles>=numExchange)
+            {
+                sum+=numExchange;
+                numBottles-=numExchange;
+                numBottles++;
+            }
+            else 
+            {
+                sum+=numBottles;
+                numBottles=0;
+            }
+        }
+        return sum;
+    }
+};
