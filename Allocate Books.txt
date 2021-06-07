@@ -1,0 +1,48 @@
+bool isPossible(int barrier,int B,vector<int> A)
+{
+    int allocatedStudents=1;
+    int pages=0;
+    for(int i=0;i<A.size();i++)
+    {
+        if(A[i]>barrier)
+        return false;
+        else if((A[i]+pages)>barrier)
+        {
+            allocatedStudents++;
+            pages=A[i];
+              if(allocatedStudents>B)
+              return false;
+        }
+        else
+        pages+=A[i];
+    }
+    return true;
+}
+int Solution::books(vector<int> &A, int B) 
+{
+   int mid;
+   int low=INT_MAX;
+   long long int high=0;
+    if(A.size()<B)
+    return -1;
+   for(int i=0;i<A.size();i++)
+    {
+        high+=A[i];
+        low=min(A[i],low);
+    }
+    int ans=-1;
+    while(low<=high)
+    {
+        mid=(low+high)>>1;
+        if(isPossible(mid,B,A))
+        {
+            ans=mid;
+            high=mid-1;
+        }
+        else
+        {
+            low=mid+1;
+        }
+    }
+    return ans;
+}
