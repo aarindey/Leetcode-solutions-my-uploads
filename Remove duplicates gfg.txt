@@ -1,0 +1,21 @@
+class Solution{
+public:	
+		
+	string removeDups(string S) 
+	{
+	    // Your code goes here
+	    vector<bool> alpha(26,false);
+	    string ans="";
+	    ans+=S[0];
+	    alpha[S[0]-'a']=true;
+	    for(int i=1;i<S.length();i++)
+	    {
+	        if(!alpha[S[i]-'a'])
+	        {
+	        ans+=S[i];
+	        alpha[S[i]-'a']=true;
+	        }
+	    }
+	    return ans;
+	}
+};
