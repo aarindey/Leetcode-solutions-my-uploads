@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    string removeChars(string string1, string string2) {
+        // code here
+        bool arr[26]={false};
+        for(int i=0;i<string2.length();i++)
+        {
+            arr[string2[i]-'a']=true;
+        }
+        string ans="";
+        for(int i=0;i<string1.length();i++)
+        {
+            if(!arr[string1[i]-'a'])
+            ans+=string1[i];
+        }
+        return ans;
+    }
+};
