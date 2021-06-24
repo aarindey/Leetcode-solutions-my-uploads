@@ -1,0 +1,24 @@
+class Solution{
+public:
+	
+	int binaryPalin (long long int N)
+	{
+	    // Your Code Here
+	    string m="";
+	    while(N>0)
+	    {
+	        m+=to_string(N%2);
+	        N/=2;
+	    }
+	    int r=m.length()-1;
+	    int l=0;
+	    while(l<=r)
+	    {
+	        if(m[l]!=m[r])
+	        return 0;
+	        l++;
+	        r--;
+	    }
+	    return 1;
+	}
+};
