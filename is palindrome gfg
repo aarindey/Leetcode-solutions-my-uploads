@@ -1,0 +1,24 @@
+
+class Solution{
+  public:
+    //Function to check whether the list is palindrome.
+    bool isPalindrome(Node *head)
+    {
+        //Your code here
+      struct Node* temp=head;
+      stack<int> s;
+      while(temp)
+      {
+          s.push(temp->data);
+          temp=temp->next;
+      }
+      while(head)
+      {
+          if(head->data!=s.top())
+          return false;
+          s.pop();
+          head=head->next;
+      }
+      return true; 
+    }
+};
