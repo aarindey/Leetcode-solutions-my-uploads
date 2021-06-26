@@ -1,0 +1,18 @@
+void sortList(Node** head)
+{
+    // Your Code Here
+    struct Node *p=*head,*q;
+    while(p)
+    {
+        q=p->next;
+        while(q)
+        {
+            if(q->data<p->data)
+            swap(q->data,p->data);
+            
+            q=q->next;
+        }
+        p=p->next;
+    }
+    return;
+}
