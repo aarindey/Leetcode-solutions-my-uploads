@@ -1,0 +1,12 @@
+int getCandidate(int n, int k){
+    //complte the function here
+    int maxi=0;
+    int i=0;
+    while(pow(k,i)<=n)
+    {
+        int x=pow(k,i);
+        maxi=max(maxi,x);
+        i++;
+    }
+    return maxi;
+}
